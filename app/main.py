@@ -34,6 +34,9 @@ def brute_force_password() -> None:
             future.append(executor.submit(force_password, index, password))
 
     wait(future)
+    for f in future:
+        index, password = f.result()
+        print(f"Found password {index}: {password}")
 
 if __name__ == "__main__":
     start_time = time.perf_counter()
