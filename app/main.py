@@ -25,8 +25,7 @@ def force_password(index: int, password: str) -> tuple:
     for i in range(10 ** 8):
         num = f"{i:08d}"
         if password == sha256_hash_str(num):
-            print(f"Found password {index}: {num}")
-            break
+            return (index, num)
 
 def brute_force_password() -> None:
     future = []
